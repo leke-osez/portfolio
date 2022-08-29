@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- LOGO -->
+  <link rel="icon" href="assets/img/cropped_profile.png" />
 
   <!--UNICONS  -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
@@ -217,7 +220,8 @@
         <!-- USE about__img class tag for styling -->
 
         <div class="about__data">
-          <div>
+          <div class="about__heading">
+            <div>
             <h2 class= "about__introduction">I'm <span class = 'about__introduction-name'>Ayodele Praise</span>, a Software Engineer</h2>
             <p >
               I am a fullstack developer passionate about building solid software infastructure for client and server side applications. 
@@ -225,51 +229,35 @@
             <p>
               I earned a Bachelor's degree in Mechanical Engineering from the University of Lagos(2021). I transitioned into Software Engineering when I began dabbling with trivial and fun python programs while in school and I realized this can be used to achieve a lot. 
             </p>
-            <p class="about__description">
+            <p class="about__description" style = "margin-bottom: 1rem;">
               I have spent most of my time as a freelancer building software for clients. I have a strong connection with my clients because I focus on the little things. I believe the little things well done, creates the difference.
             </p>
+            </div>
+            <div>
+
+              <div class = "about__details">
+                <p class = "about__details-title">Name:</p>
+                <p>Praise Ayodele </p>
+              </div>
+    
+              <div  class = "about__details">
+                <p class = "about__details-title">Email:</p>
+                <a href="mailto: praise.t.ayodele@gmail.com" class=" about__details-link">praise.t.ayodele@gmail.com</a>
+              </div>
+    
+              <div  class = "about__details">
+                <p class = "about__details-title">Age: </p>
+                <p>23</p>
+              </div>
+    
+              <div class = "about__details">
+                <p class = "about__details-title">Location:</p>
+                <p>Lagos, Nigeria</p>
+              </div>
+            </div>
           </div>
-          <div>
-
-            <div class = "about__details">
-              <p class = "about__details-title">Name:</p>
-              <p>Praise Ayodele </p>
-            </div>
-  
-            <div  class = "about__details">
-              <p class = "about__details-title">Email:</p>
-              <a href="mailto: praise.t.ayodele@gmail.com" class=" about__details-link">praise.t.ayodele@gmail.com</a>
-            </div>
-  
-            <div  class = "about__details">
-              <p class = "about__details-title">Age: </p>
-              <p>23</p>
-            </div>
-  
-            <div class = "about__details">
-              <p class = "about__details-title">Location:</p>
-              <p>Lagos, Nigeria</p>
-            </div>
-          </div>
-          <!-- <div class="about__info">
-            <div>
-              <span class="about__info-title">02+</span>
-              <span class="about__info-name">Years <br />
-                Experience</span>
-            </div>
-
-            <div>
-              <span class="about__info-title">05+</span>
-              <span class="about__info-name">Completed <br />
-                Projects</span>
-            </div>
-
-            <div>
-              <span class="about__info-title">08+</span>
-              <span class="about__info-name">Companies <br />
-                Worked</span>
-            </div>
-          </div> -->
+          
+          
           <div class="about__buttons">
           </div>
             <!-- TODO: ADD DOWNLOAD RESOURCE -->
@@ -855,7 +843,7 @@
             <textarea name="message" id="form-message" cols="0" rows="5" class="contact__input"
               placeholder="Compose Message..."></textarea>
           </div>
-
+          <p id = 'form-error-message' style="color:red"></p>
           <div class="contact__button-container">
             <button class="contact__form-button" id="js_send">Send <i
                 class="uil uil-message contact__submit-button-icon"></i></button>

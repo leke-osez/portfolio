@@ -647,6 +647,11 @@ img{
     background-color: var(--input-color);
     width: 100%;
 }
+.about__heading p{
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    color: var(--title-color)
+}
 .about__img{
     width: 200px;
     border-radius: .5rem;
@@ -655,7 +660,7 @@ img{
 }
 
 .about__introduction{
-    color: var(--text-color);
+    color: var(--title-color);
 }
 
 .about__introduction-name{
@@ -663,7 +668,6 @@ img{
 }
 
 .about__description{
-    text-align: center;
     margin-bottom: var(--mb-2-5);
 }
 
@@ -1408,11 +1412,10 @@ img{
         font-size: 5rem;
         
     }
-
+    
     .about__data{
         padding-left:1.5rem ;
         padding-right:1.5rem ;
-
     }
     .container{
         margin-left: auto;

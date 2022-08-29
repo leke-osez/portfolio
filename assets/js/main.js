@@ -366,6 +366,28 @@ scrollBehaviours.forEach(behaviour =>{
     var sendButton = document.getElementById("js_send");
 
     function js_send() {
+        
+        var name = document.getElementById('form-name').value;
+        var email = document.getElementById('form-email').value;
+        var msg =  document.getElementById('form-message').value;
+        var errorMessage = document.getElementById('form-error-message');
+
+        if (email.trim() && msg.trim()){
+            errorMessage.innerText = ''
+        }
+             
+
+        if (!email.trim() ){
+            errorMessage.innerText = 'Please include Email address'
+            return;
+        }
+             
+        if (!msg.trim() ){
+            errorMessage.innerText = 'Please include Message Content'
+            return;
+        }
+
+
         sendButton.textContent='Sending…';
         sendButton.disabled=true;
         var request = new XMLHttpRequest();
@@ -379,9 +401,8 @@ scrollBehaviours.forEach(behaviour =>{
         };
 
         var subject = 'Message from potential client';
-        var name = document.getElementById('form-name').value;
-        var email = document.getElementById('form-email').value;
-        var msg =  document.getElementById('form-message').value;
+
+
         var message = `Name: ${name} \n Email: ${email} \n Message: ${msg}`;
         data_js['subject'] = subject;
         data_js['text'] = message;
