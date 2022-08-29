@@ -654,6 +654,14 @@ img{
     justify-self: center;
 }
 
+.about__introduction{
+    color: var(--text-color);
+}
+
+.about__introduction-name{
+    color: var(--first-color)
+}
+
 .about__description{
     text-align: center;
     margin-bottom: var(--mb-2-5);
