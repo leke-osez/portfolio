@@ -915,12 +915,13 @@ img{
 }
 
 .services__modal{
+    padding: 1rem;
     position: fixed;
     top:0;
     left:0;
     right:0;
     bottom:0;
-    background-color: rgba(0,0,0,.35);
+    background-color: rgba(0,0,0,.60);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -932,10 +933,14 @@ img{
 }
 
 .services__modal-content{
+    
     position: relative;
     background-color:var(--container-color) ;
     padding: 1.5rem;
     border-radius: .5rem;
+    height: fit-content;
+    max-height: 90%;
+    padding-top:4rem
 }
 
 .services__modal-services{
@@ -956,7 +961,7 @@ img{
 .services__modal-close{
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    left: 1rem;
     font-size: 1.5rem;
     color: var(--first-color);
     cursor: pointer;
@@ -1019,6 +1024,7 @@ img{
     padding: 0 1.5rem;
     opacity: 0;
     visibility: hidden;
+    
 
 }
 
@@ -1031,8 +1037,12 @@ img{
 
 .portfolio__img{
     width: 100%;
+    height: 100%;
     border-radius: .5rem;
-    justify-self: center
+    border: 1px;
+    border-color:  var(--text-color);
+    justify-self: center;
+    object-fit: cover;
 }
 
 .portfolio__title{
@@ -1041,17 +1051,11 @@ img{
 }
 
 
-.portfolio__button{
-    cursor: pointer;
-}
-
-.portfolio__button:hover .button__icon{
-    transform: translateX(1.25rem);
-    
-}
 
 .portfolio__card{
     position: relative;
+    width: 12rem;
+    height: 12rem;
 }
 
 .portfolio__card:hover .portfolio__tag{
@@ -1118,7 +1122,7 @@ img{
 
 .swiper__container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr ;
     row-gap: 1rem;
 }
 .swiper-wrapper{
@@ -1128,6 +1132,76 @@ img{
     background-color: var(--first-color);
 }
 
+
+
+.portfolio__modal{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0,0,0,.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: var(--z-modal);
+}
+.portfolio__modal-img-container{
+    position: relative;
+    width: 100%;
+    height:14.3rem;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.portfolio__modal-img{
+    width: 14rem;
+    height: 14rem;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.portfolio__modal-description{
+    position: relative;
+   
+}
+
+.portfolio__modal-description > p{
+    padding: .2rem .3rem;
+
+}
+.scroll-bar{
+    overflow-y: scroll;
+}
+
+.portfolio__links{
+    width: 100%;
+    padding:0 .3rem;
+    display: flex;
+    margin: .8rem 0;
+    justify-content: space-between;
+}
+.portfolio__link{
+    color: var(--first-color-alt);
+    border: 2px solid;
+    border-radius: 2rem;
+    display: flex;
+    gap: .3rem;
+    padding: .2rem .2rem;
+    font-size: var(--small-font-size);
+}
+
+.portfolio__feature-list{
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
+    
+}
 
 /* CONTACT ME */
 .contact__container{
@@ -1284,7 +1358,7 @@ img{
     color: #FFF
 }
 
-/* SXROLL UP */
+/* SCROLL UP */
 .scrollup{
     position: fixed;
     right: 1rem;
@@ -1328,6 +1402,41 @@ img{
  
 }
 
+/* AUTOMATIC SLIDE SHOW */
+
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 4s;
+    
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+
+  .trickle{
+    display: none;
+  }
+  .kww{
+    display: none;
+  }
+  .zumba{
+    display: none;
+  }
+  .dashboard{
+    display: none;
+  }
+  .linkedin{
+    display: none;
+  }
+  .ai{
+    display: none;
+  }
+
+
 /* SMALL DEVICES */
 @media screen and (max-width: 320px) {
     .container{
@@ -1365,7 +1474,7 @@ img{
     .services__modal{
         padding: 0 .5rem;
     }
-    .project_img{
+    .portfolio_img{
         width: 200px
     }
 
@@ -1404,6 +1513,10 @@ img{
     .portfolio__tabs{
         gap: 2rem;
         
+    }
+    .swiper__container{      
+        grid-template-columns: 1fr 1fr;
+       
     }
 }
 
@@ -1504,10 +1617,10 @@ img{
         padding: 3rem 0 2rem 2.5rem;
     }
     .services__modal-content{
-        width: 450px;
+        width: 50%;
     }
     .portfolio__content{
-        align-items: center;
+        align-items: start;
     }
     
     .footer__container{

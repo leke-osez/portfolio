@@ -12,7 +12,9 @@ const removeMenu = ()=>{
     main.classList.remove('bg-shadow');
     settingsMenu.classList.remove('show-settings');
 
+
 }
+
 
 const showMenu = ()=>{
     navMenu.classList.add('show-menu')
@@ -49,7 +51,7 @@ const navLink = document.querySelectorAll('.nav__link')
 navLink.forEach(n=> n.addEventListener('click', removeMenu))
 
 
-// REMOVE MENU WITH SURROUNDING COMPONENTS
+// REMOVE MODAL WITH SURROUNDING COMPONENTS
 
 document.getElementById('main')
         .addEventListener('click',removeMenu) 
@@ -100,23 +102,42 @@ tabs.forEach((tab)=>{
 })
 
 // SERVICES MODAL
-const modalViews = document.querySelectorAll('.services__modal'),
+var modalViews = document.querySelectorAll('.services__modal'),
       modalBtns = document.querySelectorAll('.services__button'),
       modalCloses = document.querySelectorAll('.services__modal-close')
 
+
+
+const removeModal = ()=>{
+    modalViews.forEach((modalView)=>{
+        modalView.classList.remove('active-modal')
+})
+if (timer) {clearTimeout(timer);}
+slideIndex = 0
+
+}
+
+document.getElementById('main')
+    .addEventListener('click',removeModal) ;
+
+
+  
 
 let modal = function(modalClick){
     modalViews[modalClick].classList.add('active-modal')
 }
 
 modalBtns.forEach((modalBtn, i)=>{
-    modalBtn.addEventListener('click',()=>modal(i))
+    modalBtn.addEventListener('click',(e)=>{
+        e.stopPropagation()
+        modal(i)
+    })
 })
 
 modalCloses.forEach((modalClose)=>{
     modalClose.addEventListener('click',()=>{
         modalViews.forEach((modalView)=>{
-            modalView.classList.remove('active-modal')
+           removeModal
         })
     })
 })
@@ -138,7 +159,6 @@ modalCloses.forEach((modalClose)=>{
 //   });
 
 // PORFOLIO 
-
 const portfolio_tabs = document.querySelectorAll(".portfolio__tabs-title"),
       portfolio_cards = document.querySelectorAll(".portfolio__content")
 
@@ -164,6 +184,9 @@ const portfolio_tabs = document.querySelectorAll(".portfolio__tabs-title"),
 
         })
       })
+
+//PORTFOLIO MODAL
+
 
 // SCROLL UP
 function scrollUp(){
@@ -490,6 +513,32 @@ var TxtType = function(el, toRotate, period) {
         css.innerHTML = ".typewrite > .wrap { solid var(--first-color)}";
         document.body.appendChild(css);
     };
+
+// AUTOMATIC SLIDE ANIMATION
+var slideIndex = 0;
+var timer
+function showSlides( project) {
+    let slides = document.getElementsByClassName(project);
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+
+    slides[slideIndex-1].style.display = "block";  
+    timer = setTimeout(()=>showSlides(project), 7000); // Change image every 2 seconds
+  }
+
+const portfolioButtons = document.querySelectorAll(".portfolio__button");
+
+portfolioButtons.forEach(button=>(
+    button.addEventListener('click', ()=>{
+        
+        const projectName = button.getAttribute('data-project')
+        showSlides( projectName)
+    }
+    )
+))
 
 
 
